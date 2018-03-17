@@ -1,0 +1,203 @@
+begin
+decl
+int a[2][2];
+int i,j;
+enddecl
+i=0;j=0;
+while(i<2) do
+while(j<2) do
+read(a[i][j]);
+j=j+1;
+endwhile;
+j=0;
+i=i+1;
+endwhile;
+i=0;j=0;
+while(i<2) do
+while(j<2) do
+write(a[i][j]);
+j=j+1;
+endwhile;
+j=0;
+i=i+1;
+endwhile;
+end;
+  
+
+
+
+
+
+///////////////////
+begin
+decl 
+int a[2][2],b[2][2],c[2][2];
+int i,j,k;
+enddecl
+i=0;
+while(i<2) do  
+j=0;      
+while(j<2) do
+read(a[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+i=0;
+while(i<2) do        
+j=0;
+while(j<2) do
+read(b[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;i=0;
+while(i<2) do        
+j=0;
+while(j<2) do
+c[i][j]=a[i][j]+b[i][j];
+write(c[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+end;
+
+
+///////////////////
+begin
+decl 
+int a[2][2],b[2][2],c[2][2];
+int i,j,k;
+enddecl
+i=0;
+while(i<2) do  
+j=0;      
+while(j<2) do
+read(a[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+i=0;
+while(i<2) do        
+j=0;
+while(j<2) do
+read(b[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+i=0;
+while(i<2) do        
+j=0;
+while(j<2) do
+k=0;
+c[i][j]=0;
+while(k<2) do
+c[i][j]=c[i][j]+(a[i][k]*b[k][j]);
+k=k+1;
+endwhile;
+write(c[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////
+3X3
+
+begin
+decl
+int a[3][3];
+int b[3][3];
+int c[3][3];
+int i;
+int j;
+int k;
+enddecl 
+i=0;
+while(i<3) do  
+j=0;      
+while(j<3) do
+read(a[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+i=0;
+while(i<3) do        
+j=0;
+while(j<3) do
+read(b[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+i=0;
+while(i<3) do        
+j=0;
+while(j<3) do
+k=0;
+c[i][j]=0;
+while(k<3) do
+c[i][j]=c[i][j]+(a[i][k]*b[k][j]);
+k=k+1;
+endwhile;
+write(c[i][j]);
+j=j+1;
+endwhile;
+i=i+1;
+endwhile;
+end;
+
+//////////////////////////////////////////////////////////////
+begin decl int a[3][3];int b[3][3];int c[3][3];int i;int j;int k;enddecl i=0;while(i<3) do j=0;while(j<3) do read(a[i][j]);j=j+1;endwhile;i=i+1;endwhile;i=0;while(i<3) do j=0;while(j<3) do read(b[i][j]);j=j+1;endwhile;i=i+1;endwhile;i=0;while(i<3) do j=0;while(j<3) do k=0;c[i][j]=0;while(k<3) do c[i][j]=c[i][j]+(a[i][k]*b[k][j]);k=k+1;endwhile;write(c[i][j]);j=j+1;endwhile;i=i+1;endwhile;end;
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+Smallest Pointers
+
+begin
+decl
+int *p, *q, *r;
+int i,j,k;
+enddecl
+p = &i;
+q=&j;
+r=&k;
+read(*p);
+read(*q);
+read(*r);
+write(*p);
+write(*q);
+write(*r);
+if (*p<*q) then 
+	if(*p<*r) then
+		write(*p);
+	else
+		write(*r);
+	endif;
+else if(*q<*r) then
+	write(*q);
+	else
+	write(*r);
+	endif;
+endif;
+end;
+		
+

@@ -1,0 +1,6 @@
+decl
+enddecl;
+begin
+decl
+enddecl
+end;
