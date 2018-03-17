@@ -31,7 +31,31 @@ Decl: Type Varlist';'	 			{ assignType();};
 Type: INT					{stype=SINT;}
 | STR						{stype=SSTR;};
 */
-Program: GDeclBlock MainBlock 
+Program: GDeclBlock MainBlock 			{
+						Gsymbol *temp=shead;
+						if(shead==NULL)
+							printf("NO variables");
+						else
+						{
+							while(temp!=NULL)
+							{
+								printf("%s %d %d %d\n",temp->name,temp->size,temp->size2,temp->binding);
+								temp=temp->next;
+							}
+						}	
+						fprintf(target_file,"%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\nMOV SP, 4196\n",0,2056,0,0,0,0,0,0);
+						// CODEGEN (TO BE MODIFIED)
+						// Print the output into file.
+						//printf("TO CODEGEN");
+						codeGen($2);
+						//printf("FROM CODEGEN");
+						fprintf(target_file,"MOV R0,\"Exit\" \nPUSH R0\nPUSH R0\nPUSH R0\nPUSH R0\nPUSH R0\nCALL 0\n");
+						fprintf(target_file,"POP R0\nPOP R1\nPOP R1\nPOP R1\nPOP R1\n");
+						exit(1);
+
+						printf("\nDone\n");
+						exit(1);
+						}
 	//| GDeclBlock FdefBlock MainBlock
 	| MainBlock;	
 
@@ -160,7 +184,7 @@ Param: PType ID 				{$$=createTree(NULL,tPARAM,$2->varname,NULL,NULL);
 						$$->type=ptype;};								
 
 PType :  INT					{ptype=inttype;}
-	| STR					{ptype=strtype};
+	| STR					{ptype=strtype;};
 
 
 /*FDefBlock: FDefBlock Fdef
@@ -192,7 +216,7 @@ IdList: IdList ',' ID
 
 
 MainBlock: BEG Declarations Slist END ';'	{
-						Gsymbol *temp=shead;
+						/*Gsymbol *temp=shead;
 						if(shead==NULL)
 							printf("NO variables");
 						else
@@ -214,7 +238,8 @@ MainBlock: BEG Declarations Slist END ';'	{
 						exit(1);
 
 						printf("\nDone\n");
-						exit(1);
+						exit(1);*/
+						$$=$3;
 						}
 	 | BEG Declarations END ';'		{
 					 	printf("Empty\n");
